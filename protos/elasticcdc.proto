@@ -1,0 +1,43 @@
+
+syntax = "proto3";
+
+package elasticcdc;
+
+// The greeting service definition.
+service ElasticcdcService {
+
+  rpc DataTransStream(stream ElasticcdcRequest) returns (stream ElasticcdcReply) {}
+
+  rpc IsPreempted (ElasticcdcRequest) returns (ElasticcdcReply) {}
+
+}
+
+// The request message containing the user's name.
+message ElasticcdcRequest {
+    string name = 1;
+    string image_classify_request_info = 2;
+    string model_name = 3;
+    string scale = 4;
+    string filename = 5;
+    int64 id = 6;
+    uint32 frontend_id = 7;
+    bytes data = 8;
+    uint32 width = 9;
+    uint32 height = 10;
+    uint32 channels = 11;
+    string encode_type = 12;
+    double cdc_infer_time = 13;
+    double backup_infer_time = 14;
+    double decode_time = 15;
+    bool end_signal = 16;
+    bool recompute = 17;
+}
+
+// The response message containing the greetings
+message ElasticcdcReply {
+    string message = 1;
+    string image_classify_reply_info = 2;
+    bytes reply_info = 3;
+    int64 id = 4;
+    bool recompute = 5;
+}
