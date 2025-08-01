@@ -205,7 +205,3 @@ docker run  --rm --net=host -v ${PWD}/model_repository:/models nvcr.io/nvidia/tr
 # run client
 ./image_client conf_path data_path
 ```
-
-
-
-根据EuroSys-24，992个GPU的集群，2个月（1440小时）发生100次左右failure，平均每个GPU每小时发生7*10-5次failure
